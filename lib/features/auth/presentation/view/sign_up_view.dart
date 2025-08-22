@@ -1,4 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:dalel_app/core/utils/app_string.dart';
 import 'package:dalel_app/core/widgets/custom_button_widget.dart';
 import 'package:dalel_app/features/auth/presentation/view/widget/custom_text_form_widget.dart';

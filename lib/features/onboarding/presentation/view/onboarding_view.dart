@@ -1,5 +1,7 @@
 import 'package:dalel_app/core/Routes/routes_name.dart';
+import 'package:dalel_app/core/database/cache/cache_helper.dart';
 import 'package:dalel_app/core/functions/navigtion_fun.dart';
+import 'package:dalel_app/core/services/service_locator.dart';
 import 'package:dalel_app/core/utils/app_color.dart';
 import 'package:dalel_app/core/utils/app_string.dart';
 import 'package:dalel_app/core/utils/app_text_style.dart';
@@ -33,6 +35,10 @@ class _OnboardingViewState extends State<OnboardingView> {
               currentIndex < onboardingData.length - 1
                   ? CustomNavBar(
                       onTap: () {
+                        getIt<CacheHelper>().saveData("IsVisited", true);
+                        print(
+                          " ues ${getIt<CacheHelper>().containKey("IsVisited")  }",
+                        );
                         pushNavigtion(context, RoutesName.signUp);
                       },
                     )
@@ -63,7 +69,11 @@ class _OnboardingViewState extends State<OnboardingView> {
                         ),
                         SizedBox(height: 16),
                         GestureDetector(
-                          onTap: () {
+                          onTap: () async {
+                            await getIt<CacheHelper>().saveData(
+                              "IsVisited",
+                              true,
+                            );
                             pushReplacementNavigtion(
                               context,
                               RoutesName.signIn,
@@ -80,7 +90,8 @@ class _OnboardingViewState extends State<OnboardingView> {
                       ],
                     )
                   : CustomButtonWidget(
-                      onPressed: () {
+                      onPressed: () async {
+                        await getIt<CacheHelper>().saveData("IsVisited", true);
                         _controller.nextPage(
                           duration: Duration(microseconds: 200),
                           curve: Curves.bounceIn,

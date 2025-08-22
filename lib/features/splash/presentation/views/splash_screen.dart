@@ -1,12 +1,12 @@
-import 'package:dalel_app/core/Routes/app_navigation.dart';
 import 'package:dalel_app/core/Routes/routes_name.dart';
+import 'package:dalel_app/core/database/cache/cache_helper.dart';
 import 'package:dalel_app/core/functions/navigtion_fun.dart';
+import 'package:dalel_app/core/services/service_locator.dart';
 import 'package:dalel_app/core/utils/app_color.dart';
 import 'package:dalel_app/core/utils/app_string.dart';
 import 'package:dalel_app/core/utils/app_text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -18,13 +18,20 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
+    bool? isVisited = getIt<CacheHelper>().getData("IsVisited", bool) ?? false;
+    print(isVisited);
+    if (isVisited == true) {
+      delayedNavigation(context, RoutesName.signUp);
+    } else {
+      delayedNavigation(context, RoutesName.onboarding);
+    }
+
     super.initState();
-    delayedNavigation(context);
   }
 
-  void delayedNavigation(context) {
+  void delayedNavigation(context, String path) {
     Future.delayed(Duration(seconds: 2), () {
-      pushReplacementNavigtion(context, RoutesName.onboarding);
+      pushReplacementNavigtion(context, path);
     });
   }
 
