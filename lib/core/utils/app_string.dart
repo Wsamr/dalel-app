@@ -23,10 +23,11 @@ abstract class AppString {
       emailAddress = "Email Address",
       password = "Password",
       welcomeBack = "Welcome Back !",
-      iHaveAgreeToOurTermsAndCondition =
-          "I have agree to our Terms and Condition",
-      signUp = "Sign Up",
-      signIn = "Sign In",
+      iHaveAgreeToOur =
+          "I have agree to our ",
+      termsAndCondition="Terms and Conditio",
+      signUp = " Sign Up",
+      signIn = " Sign In",
       alreadyHaveAnAccount = "Already have an account ?",
       dontHaveAnAccount = "Don’t have an account ?",
       forgotPassword = "Forgot Password ?",

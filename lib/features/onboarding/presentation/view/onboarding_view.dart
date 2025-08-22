@@ -33,7 +33,7 @@ class _OnboardingViewState extends State<OnboardingView> {
               currentIndex < onboardingData.length - 1
                   ? CustomNavBar(
                       onTap: () {
-                        pushNavigtion(context, RoutesName.signIn);
+                        pushNavigtion(context, RoutesName.signUp);
                       },
                     )
                   : SizedBox(),
