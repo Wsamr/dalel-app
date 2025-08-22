@@ -1,5 +1,6 @@
 import 'package:dalel_app/core/Routes/routes_name.dart';
 import 'package:dalel_app/core/database/cache/cache_helper.dart';
+import 'package:dalel_app/core/database/cache/cached_keys.dart';
 import 'package:dalel_app/core/functions/navigtion_fun.dart';
 import 'package:dalel_app/core/services/service_locator.dart';
 import 'package:dalel_app/core/utils/app_color.dart';
@@ -35,7 +36,7 @@ class _OnboardingViewState extends State<OnboardingView> {
               currentIndex < onboardingData.length - 1
                   ? CustomNavBar(
                       onTap: () {
-                        getIt<CacheHelper>().saveData("IsVisited", true);
+                        getIt<CacheHelper>().saveData(CachedKeys.isVisited, true);
                         print(
                           " ues ${getIt<CacheHelper>().containKey("IsVisited")  }",
                         );
@@ -71,7 +72,7 @@ class _OnboardingViewState extends State<OnboardingView> {
                         GestureDetector(
                           onTap: () async {
                             await getIt<CacheHelper>().saveData(
-                              "IsVisited",
+                              CachedKeys.isVisited,
                               true,
                             );
                             pushReplacementNavigtion(
@@ -91,7 +92,7 @@ class _OnboardingViewState extends State<OnboardingView> {
                     )
                   : CustomButtonWidget(
                       onPressed: () async {
-                        await getIt<CacheHelper>().saveData("IsVisited", true);
+                        await getIt<CacheHelper>().saveData(CachedKeys.isVisited, true);
                         _controller.nextPage(
                           duration: Duration(microseconds: 200),
                           curve: Curves.bounceIn,

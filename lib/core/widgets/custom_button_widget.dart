@@ -5,9 +5,10 @@ import 'package:dalel_app/core/utils/responsive_figma_sizes.dart';
 import 'package:flutter/material.dart';
 
 class CustomButtonWidget extends StatelessWidget {
-  const CustomButtonWidget({super.key, this.title, this.onPressed});
+  CustomButtonWidget({super.key, this.title, this.onPressed, this.color});
   final String? title;
   final void Function()? onPressed;
+  Color? color;
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
@@ -17,7 +18,7 @@ class CustomButtonWidget extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadiusGeometry.circular(10),
         ),
-        backgroundColor: AppColor.primaryColor,
+        backgroundColor: color ?? AppColor.primaryColor,
         foregroundColor: AppColor.white,
         fixedSize: Size(double.maxFinite, responsiveWidth(context, 56)),
       ),

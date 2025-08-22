@@ -1,5 +1,6 @@
 import 'package:dalel_app/core/Routes/routes_name.dart';
 import 'package:dalel_app/core/database/cache/cache_helper.dart';
+import 'package:dalel_app/core/database/cache/cached_keys.dart';
 import 'package:dalel_app/core/functions/navigtion_fun.dart';
 import 'package:dalel_app/core/services/service_locator.dart';
 import 'package:dalel_app/core/utils/app_color.dart';
@@ -18,7 +19,7 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    bool? isVisited = getIt<CacheHelper>().getData("IsVisited", bool) ?? false;
+    bool? isVisited = getIt<CacheHelper>().getData(CachedKeys.isVisited, bool) ?? false;
     print(isVisited);
     if (isVisited == true) {
       delayedNavigation(context, RoutesName.signUp);
