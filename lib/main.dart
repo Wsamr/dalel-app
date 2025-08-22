@@ -1,7 +1,10 @@
 import 'package:dalel_app/core/Routes/app_navigation.dart';
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() {
+  // runApp(DevicePreview(builder: (context) => Dalel()));
   runApp(const Dalel());
 }
 
@@ -10,9 +13,15 @@ class Dalel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      debugShowCheckedModeBanner: false,
-      routerConfig: AppNavigation.router,
+    return ScreenUtilInit(
+      designSize: const Size(360, 690),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      child: MaterialApp.router(
+        builder: DevicePreview.appBuilder,
+        debugShowCheckedModeBanner: false,
+        routerConfig: AppNavigation.router,
+      ),
     );
   }
 }

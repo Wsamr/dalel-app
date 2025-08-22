@@ -5,6 +5,7 @@ abstract class AppColor {
   static Color deepBrown = const Color(0xff6B4B3E);
   static Color offWhite = const Color(0xffF8F4F9);
   static Color deepGrey = const Color(0xff6F6460);
-  static Color lightGrey = const Color(0xffB4B4B4);
+  static Color lightGrey = const Color(0xffD9D9D9);
   static Color black = const Color(0xff000000);
+  static Color white = const Color(0xffFFFFFF);
 }
