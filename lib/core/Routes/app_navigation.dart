@@ -1,8 +1,8 @@
 import 'package:dalel_app/core/Routes/routes_name.dart';
-import 'package:dalel_app/core/services/service_locator.dart';
 import 'package:dalel_app/features/auth/presentation/view/sign_in_view.dart';
 import 'package:dalel_app/features/auth/presentation/view/sign_up_view.dart';
 import 'package:dalel_app/features/auth/presentation/auth_cubit/auth_cubit.dart';
+import 'package:dalel_app/features/home/presentation/view/home_view.dart';
 import 'package:dalel_app/features/onboarding/presentation/view/onboarding_VIEW.dart';
 import 'package:dalel_app/features/splash/presentation/views/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -24,16 +24,20 @@ class AppNavigation {
       GoRoute(
         path: RoutesName.signIn,
         builder: (BuildContext context, GoRouterState state) => BlocProvider(
-          create: (context) => getIt<AuthCubit>(),
+          create: (context) => AuthCubit(),
           child: const SignInView(),
         ),
       ),
       GoRoute(
         path: RoutesName.signUp,
         builder: (BuildContext context, GoRouterState state) => BlocProvider(
-          create: (context) => getIt<AuthCubit>(),
+          create: (context) => AuthCubit(),
           child: const SignUpView(),
         ),
+      ),
+      GoRoute(
+        path: RoutesName.home,
+        builder: (BuildContext context, GoRouterState state) => HomeView(),
       ),
     ],
   );

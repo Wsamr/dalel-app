@@ -23,9 +23,19 @@ class AppTextStyle {
       fontWeight: fontWeight ?? FontWeight.w600,
     );
   }
+
+  static TextStyle saira({double? size, Color? color, FontWeight? fontWeight}) {
+    return TextStyle(
+      fontFamily: TextFamilyString.saira,
+      fontSize: size ?? 32.sp,
+      color: color ?? AppColor.white,
+      fontWeight: fontWeight ?? FontWeight.bold,
+    );
+  }
 }
 
 class TextFamilyString {
   static String pacifico = "Pacifico";
   static String poppins = "Poppins";
+  static String saira = "Saira";
 }

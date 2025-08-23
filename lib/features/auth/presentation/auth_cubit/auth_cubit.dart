@@ -9,7 +9,9 @@ class AuthCubit extends Cubit<AuthState> {
   String? lastName;
   String? email;
   String? password;
-  final golbalKey = GlobalKey<FormState>();
+  final signUpKey = GlobalKey<FormState>();
+  final signInKey = GlobalKey<FormState>();
+
   bool? termsAndCondition = false;
   bool? obscureText = true;
 
@@ -20,6 +22,7 @@ class AuthCubit extends Cubit<AuthState> {
         email: email!,
         password: password!,
       );
+      emailVerified();
       emit(SignUpLoadedState());
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
@@ -34,10 +37,16 @@ class AuthCubit extends Cubit<AuthState> {
             errorMessage: "The account already exists for that email.",
           ),
         );
+      } else {
+        emit(SignUpFailureState(errorMessage: "wrong check"));
       }
     } catch (e) {
       SignUpFailureState(errorMessage: e.toString());
     }
+  }
+
+  emailVerified() async {
+    await FirebaseAuth.instance.currentUser!.sendEmailVerification();
   }
 
   termsAndConditionUpdate({required newValue}) {
@@ -48,5 +57,30 @@ class AuthCubit extends Cubit<AuthState> {
   hidenPassword(bool obscureText) {
     this.obscureText = obscureText;
     emit(HidenPasswordUpdate());
+  }
+
+  signInWithEmailAndPassword() async {
+    try {
+      emit(SignInLoadingState());
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: email!,
+        password: password!,
+      );
+      emit(SignInLoadedState());
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        emit(SignInFailureState(errorMessage: "No user found for that email."));
+      } else if (e.code == 'wrong-password') {
+        emit(
+          SignInFailureState(
+            errorMessage: "Wrong password provided for that user.",
+          ),
+        );
+      } else {
+        emit(SignInFailureState(errorMessage: "check email and password"));
+      }
+    } catch (e) {
+      emit(SignInFailureState(errorMessage: e.toString()));
+    }
   }
 }

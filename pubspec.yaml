@@ -37,6 +37,8 @@ dependencies:
   flutter_bloc: ^9.1.1
   flutter_native_splash: ^2.4.6
   flutter_screenutil: ^5.9.3
+  flutter_svg: ^2.2.0
+  fluttertoast: ^8.2.12
   get_it: ^8.2.0
   go_router: ^16.2.0
   shared_preferences: ^2.5.3
@@ -78,6 +80,10 @@ flutter:
     - family: Poppins
       fonts:
         - asset: assets/fonts/Poppins-Regular.ttf
+
+    - family: Saira
+      fonts:
+        - asset: assets/fonts/Saira_Condensed-Regular.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #

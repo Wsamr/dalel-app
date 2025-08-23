@@ -1,13 +1,10 @@
+import 'package:dalel_app/core/Routes/routes_name.dart';
+import 'package:dalel_app/core/functions/navigtion_fun.dart';
 import 'package:dalel_app/core/utils/app_string.dart';
-import 'package:dalel_app/core/widgets/custom_button_widget.dart';
-import 'package:dalel_app/features/auth/presentation/auth_cubit/auth_cubit.dart';
 import 'package:dalel_app/features/auth/presentation/view/widget/custom_sign_up_form.dart';
-import 'package:dalel_app/features/auth/presentation/view/widget/custom_text_form_widget.dart';
 import 'package:dalel_app/features/auth/presentation/view/widget/have_an_account_widget.dart';
-import 'package:dalel_app/features/auth/presentation/view/widget/terms_and_conditions.dart';
 import 'package:dalel_app/features/auth/presentation/view/widget/welcome_text_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SignUpView extends StatelessWidget {
   const SignUpView({super.key});
@@ -27,8 +24,11 @@ class SignUpView extends StatelessWidget {
               const SliverToBoxAdapter(child: SizedBox(height: 8)),
               SliverToBoxAdapter(child: CustomSignUpForm()),
               const SliverToBoxAdapter(child: SizedBox(height: 16)),
-              const SliverToBoxAdapter(
+              SliverToBoxAdapter(
                 child: HaveAnAccountWidget(
+                  onTap: () {
+                    pushReplacementNavigtion(context, RoutesName.signIn);
+                  },
                   tex1: AppString.alreadyHaveAnAccount,
                   text2: AppString.signIn,
                 ),
