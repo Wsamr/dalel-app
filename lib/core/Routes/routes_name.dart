@@ -3,7 +3,8 @@ class RoutesName {
       onboarding = "/onBoarding",
       signIn = "/SignIn",
       signUp = "/SignUp",
-      home = "/home"
+      home = "/home",
+       foreGeTPassword = "/foreGeTPassword"
       
       ;
 }

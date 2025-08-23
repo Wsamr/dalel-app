@@ -30,6 +30,8 @@ abstract class AppString {
       signIn = " Sign In",
       alreadyHaveAnAccount = "Already have an account ?",
       dontHaveAnAccount = "Don’t have an account ?",
+      resetPassword = "Send Reset Password Link",
+
       forgotPassword = "Forgot Password ?",
       //!Home Strings
       recommendations = "Recommendations",

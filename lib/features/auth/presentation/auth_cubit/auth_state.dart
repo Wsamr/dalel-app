@@ -21,6 +21,15 @@ class SignInFailureState extends AuthState {
   SignInFailureState({required this.errorMessage});
 }
 
+class ForgetPasswordLoadingState extends AuthState {}
+
+class ForgetPasswordLoadedState extends AuthState {}
+
+class ForgetPasswordFailureState extends AuthState {
+  String errorMessage;
+  ForgetPasswordFailureState({required this.errorMessage});
+}
+
 class TermAndConditionUpdate extends AuthState {}
 
 class HidenPasswordUpdate extends AuthState {}
