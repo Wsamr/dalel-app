@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dalel_app/features/auth/presentation/auth_cubit/auth_state.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -16,13 +17,14 @@ class AuthCubit extends Cubit<AuthState> {
   bool? termsAndCondition = false;
   bool? obscureText = true;
 
-  signUpWithPasswordAndEmail() async {
+  Future<void> signUpWithPasswordAndEmail() async {
     try {
       emit(SignUpLoadingState());
       final userCredential = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(email: email!, password: password!);
       // await userCredential.user?.sendEmailVerification();
-      emailVerified();
+      await userProfile();
+      await emailVerified();
       emit(SignUpLoadedState());
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
@@ -45,21 +47,21 @@ class AuthCubit extends Cubit<AuthState> {
     }
   }
 
-  emailVerified() async {
+  Future<void> emailVerified() async {
     await FirebaseAuth.instance.currentUser!.sendEmailVerification();
   }
 
-  termsAndConditionUpdate({required newValue}) {
+  void termsAndConditionUpdate({required newValue}) {
     termsAndCondition = newValue;
     emit(TermAndConditionUpdate());
   }
 
-  hidenPassword(bool obscureText) {
+  void hidenPassword(bool obscureText) {
     this.obscureText = obscureText;
     emit(HidenPasswordUpdate());
   }
 
-  signInWithEmailAndPassword() async {
+  Future<void> signInWithEmailAndPassword() async {
     try {
       emit(SignInLoadingState());
       await FirebaseAuth.instance.signInWithEmailAndPassword(
@@ -84,7 +86,7 @@ class AuthCubit extends Cubit<AuthState> {
     }
   }
 
-  resetPassword() async {
+  Future<void> resetPassword() async {
     try {
       emit(ForgetPasswordLoadingState());
       await FirebaseAuth.instance.sendPasswordResetEmail(email: email!);
@@ -92,5 +94,14 @@ class AuthCubit extends Cubit<AuthState> {
     } on Exception catch (e) {
       emit(ForgetPasswordFailureState(errorMessage: e.toString()));
     }
+  }
+
+  Future<void> userProfile() async {
+    CollectionReference user = FirebaseFirestore.instance.collection("users");
+    await user.add({
+      "email": email,
+      "First-name": firstName,
+      "Last-name": lastName,
+    });
   }
 }
