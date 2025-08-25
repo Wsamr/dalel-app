@@ -21,8 +21,8 @@ class CustompageInductor extends StatelessWidget {
       effect: ExpandingDotsEffect(
         dotColor: AppColor.lightGrey,
         activeDotColor: AppColor.deepBrown,
-        dotHeight: 6.sp,
-        dotWidth: 6.sp,
+        dotHeight: 5.sp,
+        dotWidth: 5.sp,
       ),
     );
   }

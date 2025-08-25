@@ -23,7 +23,7 @@ class CustomNavBar extends StatelessWidget {
           // onboardingModel.skip == null ? "" : onboardingModel.skip!,
           AppString.skip,
           style: AppTextStyle.poppins(
-            size: 16.sp,
+            size: 15.sp,
             color: AppColor.black,
             fontWeight: FontWeight.w400,
           ),

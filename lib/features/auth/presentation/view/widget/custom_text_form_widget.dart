@@ -1,6 +1,7 @@
 import 'package:dalel_app/core/utils/app_color.dart';
 import 'package:dalel_app/core/utils/app_text_style.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomTextFormWidget extends StatelessWidget {
   CustomTextFormWidget({
@@ -27,7 +28,10 @@ class CustomTextFormWidget extends StatelessWidget {
         decoration: InputDecoration(
           suffixIcon: suffixIcon,
           labelText: text,
-          labelStyle: AppTextStyle.poppins(size: 14, color: AppColor.lightGrey),
+          labelStyle: AppTextStyle.poppins(
+            size: 12.sp,
+            color: AppColor.lightGrey,
+          ),
           enabledBorder: getOutlineInputBorder(),
           focusedBorder: getOutlineInputBorder(),
           errorBorder: getOutlineInputBorder().copyWith(

@@ -1,4 +1,5 @@
 import 'package:dalel_app/core/utils/app_string.dart';
+import 'package:dalel_app/core/utils/responsive_figma_sizes.dart';
 import 'package:dalel_app/features/auth/presentation/view/widget/custom_forget_password_form.dart';
 import 'package:dalel_app/features/auth/presentation/view/widget/forget_image_widget.dart';
 import 'package:dalel_app/features/auth/presentation/view/widget/forget_password_subtitle.dart';
@@ -13,17 +14,27 @@ class ForgetPasswordView extends StatelessWidget {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-          const SliverToBoxAdapter(child: SizedBox(height: 108)),
+          SliverToBoxAdapter(
+            child: SizedBox(height: responsiveHeight(context, 108)),
+          ),
           const SliverToBoxAdapter(
             child: WelcomeTextWidget(text: AppString.forgotPassword),
           ),
-          const SliverToBoxAdapter(child: SizedBox(height: 40)),
+          SliverToBoxAdapter(
+            child: SizedBox(height: responsiveHeight(context, 40)),
+          ),
           SliverToBoxAdapter(child: ForgetImageWidget()),
-          const SliverToBoxAdapter(child: SizedBox(height: 16)),
+          SliverToBoxAdapter(
+            child: SizedBox(height: responsiveHeight(context, 16)),
+          ),
           const SliverToBoxAdapter(child: ForgetPasswordSubtitle()),
-          const SliverToBoxAdapter(child: SizedBox(height: 16)),
+          SliverToBoxAdapter(
+            child: SizedBox(height: responsiveHeight(context, 16)),
+          ),
           SliverToBoxAdapter(child: CustomForgetPasswordForm()),
-          const SliverToBoxAdapter(child: SizedBox(height: 16)),
+          SliverToBoxAdapter(
+            child: SizedBox(height: responsiveHeight(context, 16)),
+          ),
         ],
       ),
     );

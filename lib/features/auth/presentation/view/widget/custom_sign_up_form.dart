@@ -4,6 +4,7 @@ import 'package:dalel_app/core/functions/show_toast_msg.dart';
 import 'package:dalel_app/core/utils/app_color.dart';
 import 'package:dalel_app/core/utils/app_string.dart';
 import 'package:dalel_app/core/utils/auth_validator.dart';
+import 'package:dalel_app/core/utils/responsive_figma_sizes.dart';
 import 'package:dalel_app/core/widgets/custom_button_widget.dart';
 import 'package:dalel_app/features/auth/presentation/auth_cubit/auth_cubit.dart';
 import 'package:dalel_app/features/auth/presentation/auth_cubit/auth_state.dart';
@@ -69,9 +70,9 @@ class CustomSignUpForm extends StatelessWidget {
                       : Icon(Icons.visibility_off),
                 ),
               ),
-              SizedBox(height: 16),
+              SizedBox(height: responsiveHeight(context, 16)),
               TermsAndConditions(),
-              SizedBox(height: 88),
+              SizedBox(height: responsiveHeight(context, 88)),
               state is SignUpLoadingState
                   ? CircularProgressIndicator(color: AppColor.primaryColor)
                   : CustomButtonWidget(

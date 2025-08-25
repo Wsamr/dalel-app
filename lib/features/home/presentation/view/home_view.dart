@@ -3,7 +3,7 @@ import 'package:dalel_app/core/utils/responsive_figma_sizes.dart';
 import 'package:dalel_app/core/widgets/header_text_widget.dart';
 import 'package:dalel_app/features/home/presentation/widgets/custom_app_bar_widget.dart';
 import 'package:dalel_app/features/home/presentation/widgets/custom_carouse_slider_widget.dart';
-import 'package:dalel_app/features/home/presentation/widgets/historical_characters_widget_list.dart';
+import 'package:dalel_app/features/home/presentation/widgets/custom_cateory_list_view.dart';
 import 'package:dalel_app/features/home/presentation/widgets/historical_periods.dart';
 import 'package:flutter/material.dart';
 
@@ -31,7 +31,7 @@ class HomeView extends StatelessWidget {
                 child: HeaderTextWidget(text: AppString.historicalCharacters),
               ),
               SliverToBoxAdapter(child: SizedBox(height: 16)),
-              SliverToBoxAdapter(child: HistoricalCharactersWidgetList()),
+              SliverToBoxAdapter(child: CustomCateoryListView()),
               SliverToBoxAdapter(child: SizedBox(height: 32)),
               SliverToBoxAdapter(
                 child: HeaderTextWidget(text: AppString.ancientWars),

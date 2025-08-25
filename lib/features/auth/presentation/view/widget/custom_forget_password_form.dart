@@ -4,6 +4,7 @@ import 'package:dalel_app/core/functions/show_toast_msg.dart';
 import 'package:dalel_app/core/utils/app_color.dart';
 import 'package:dalel_app/core/utils/app_string.dart';
 import 'package:dalel_app/core/utils/auth_validator.dart';
+import 'package:dalel_app/core/utils/responsive_figma_sizes.dart';
 import 'package:dalel_app/core/widgets/custom_button_widget.dart';
 import 'package:dalel_app/features/auth/presentation/auth_cubit/auth_cubit.dart';
 import 'package:dalel_app/features/auth/presentation/auth_cubit/auth_state.dart';
@@ -41,7 +42,7 @@ class CustomForgetPasswordForm extends StatelessWidget {
                   validatorl: (val) => Validator.validateEmail(val),
                 ),
 
-                SizedBox(height: 16),
+                SizedBox(height: responsiveHeight(context, 16)),
                 state is ForgetPasswordLoadingState
                     ? CircularProgressIndicator(color: AppColor.primaryColor)
                     : CustomButtonWidget(

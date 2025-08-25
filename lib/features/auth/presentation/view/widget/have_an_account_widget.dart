@@ -1,6 +1,7 @@
 import 'package:dalel_app/core/utils/app_color.dart';
 import 'package:dalel_app/core/utils/app_text_style.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HaveAnAccountWidget extends StatelessWidget {
   const HaveAnAccountWidget({
@@ -21,13 +22,16 @@ class HaveAnAccountWidget extends StatelessWidget {
             children: [
               TextSpan(
                 text: tex1,
-                style: AppTextStyle.poppins(color: AppColor.deepGrey, size: 14),
+                style: AppTextStyle.poppins(
+                  color: AppColor.deepGrey,
+                  size: 12.sp,
+                ),
               ),
               TextSpan(
                 text: text2,
                 style: AppTextStyle.poppins(
                   color: AppColor.lightGrey,
-                  size: 14,
+                  size: 12.sp,
                 ),
               ),
             ],

@@ -4,8 +4,8 @@ import 'package:dalel_app/core/utils/responsive_figma_sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class HistoricalCharactersTextContainer extends StatelessWidget {
-  const HistoricalCharactersTextContainer({super.key});
+class CustomCategoryTextContainer extends StatelessWidget {
+  const CustomCategoryTextContainer({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,6 +1,7 @@
 import 'package:dalel_app/core/Routes/routes_name.dart';
 import 'package:dalel_app/core/functions/navigtion_fun.dart';
 import 'package:dalel_app/core/utils/app_string.dart';
+import 'package:dalel_app/core/utils/responsive_figma_sizes.dart';
 import 'package:dalel_app/features/auth/presentation/view/widget/custom_sign_up_form.dart';
 import 'package:dalel_app/features/auth/presentation/view/widget/have_an_account_widget.dart';
 import 'package:dalel_app/features/auth/presentation/view/widget/welcome_text_widget.dart';
@@ -17,13 +18,19 @@ class SignUpView extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
           child: CustomScrollView(
             slivers: [
-              const SliverToBoxAdapter(child: SizedBox(height: 108)),
+              SliverToBoxAdapter(
+                child: SizedBox(height: responsiveHeight(context, 108)),
+              ),
               const SliverToBoxAdapter(
                 child: WelcomeTextWidget(text: AppString.welcome),
               ),
-              const SliverToBoxAdapter(child: SizedBox(height: 8)),
+              SliverToBoxAdapter(
+            child: SizedBox(height: responsiveHeight(context, 8)),
+          ),
               SliverToBoxAdapter(child: CustomSignUpForm()),
-              const SliverToBoxAdapter(child: SizedBox(height: 16)),
+              SliverToBoxAdapter(
+                child: SizedBox(height: responsiveHeight(context, 16)),
+              ),
               SliverToBoxAdapter(
                 child: HaveAnAccountWidget(
                   onTap: () {
