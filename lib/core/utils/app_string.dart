@@ -36,7 +36,11 @@ abstract class AppString {
       //!Home Strings
       recommendations = "Recommendations",
       aboutAncientEgypt = "About Ancient Egypt",
+      historicalperiods="Historical periods",
+      ancientEgypt="Ancient Egypt",
       ancientEgyptWars = "Ancient Egypt Wars",
+      historicalCharacters="Historical Characters",
+      ancientWars="Ancient Wars",
       //!Search Strings
       searchDeepIntoTheHistory = "Search deep into the history",
       recent = "Recent",

@@ -4,7 +4,8 @@ class RoutesName {
       signIn = "/SignIn",
       signUp = "/SignUp",
       home = "/home",
-       foreGeTPassword = "/foreGeTPassword"
+       foreGeTPassword = "/foreGeTPassword",
+       navBar="/navBar"
       
       ;
 }

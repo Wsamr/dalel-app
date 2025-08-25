@@ -3,11 +3,12 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppTextStyle {
-  static TextStyle pacifico(double? size, Color? color) {
+  static TextStyle pacifico({double? size, Color? color}) {
     return TextStyle(
       fontFamily: TextFamilyString.pacifico,
-      fontSize: size,
-      color: color,
+      fontSize: size ?? 21.sp,
+      color: color ?? AppColor.deepBrown,
+      fontWeight: FontWeight.w500,
     );
   }
 

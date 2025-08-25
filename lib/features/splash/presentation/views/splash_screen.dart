@@ -26,7 +26,7 @@ class _SplashScreenState extends State<SplashScreen> {
     if (isVisited == true) {
       FirebaseAuth.instance.currentUser == null
           ? delayedNavigation(context, RoutesName.signIn)
-          : delayedNavigation(context, RoutesName.home);
+          : delayedNavigation(context, RoutesName.navBar);
     } else {
       delayedNavigation(context, RoutesName.onboarding);
     }
@@ -46,7 +46,7 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Center(
         child: Text(
           AppString.dalel,
-          style: AppTextStyle.pacifico(50.sp, AppColor.deepBrown),
+          style: AppTextStyle.pacifico(),
         ),
       ),
     );

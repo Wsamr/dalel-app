@@ -1,10 +1,12 @@
 import 'package:dalel_app/core/Routes/routes_name.dart';
+import 'package:dalel_app/core/widgets/custom_nav_bar_widget.dart';
 import 'package:dalel_app/features/auth/presentation/view/forget_password_view.dart';
 import 'package:dalel_app/features/auth/presentation/view/sign_in_view.dart';
 import 'package:dalel_app/features/auth/presentation/view/sign_up_view.dart';
 import 'package:dalel_app/features/auth/presentation/auth_cubit/auth_cubit.dart';
 import 'package:dalel_app/features/home/presentation/view/home_view.dart';
 import 'package:dalel_app/features/onboarding/presentation/view/onboarding_VIEW.dart';
+import 'package:dalel_app/features/onboarding/presentation/view/widgets/custom_nav_bar.dart';
 import 'package:dalel_app/features/splash/presentation/views/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -44,8 +46,8 @@ class AppNavigation {
         ),
       ),
       GoRoute(
-        path: RoutesName.home,
-        builder: (BuildContext context, GoRouterState state) => HomeView(),
+        path: RoutesName.navBar,
+        builder: (BuildContext context, GoRouterState state) => CustomNavBarWidget(),
       ),
     ],
   );

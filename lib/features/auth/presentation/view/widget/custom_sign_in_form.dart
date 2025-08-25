@@ -23,7 +23,7 @@ class CustomSignInForm extends StatelessWidget {
         if (state is SignInLoadedState) {
           // pushReplacementNavigtion(context, RoutesName.home);
           FirebaseAuth.instance.currentUser!.emailVerified == true
-              ? pushReplacementNavigtion(context, RoutesName.home)
+              ? pushReplacementNavigtion(context, RoutesName.navBar)
               : showToastMsg("successs , first veritfy your email");
         } else if (state is SignInFailureState) {
           showToastMsg(state.errorMessage, color: Colors.red);
